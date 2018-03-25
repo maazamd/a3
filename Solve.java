@@ -4,7 +4,7 @@ public class Solve {
 	private Cube c2 = new Cube(new Color[]{Color.WHITE, Color.GREEN, Color.BLUE, Color.WHITE, Color.RED, Color.RED});
 	private Cube c3 = new Cube(new Color[]{Color.GREEN, Color.WHITE, Color.RED, Color.BLUE, Color.RED, Color.RED});
 	private Cube c4 = new Cube(new Color[]{Color.BLUE, Color.RED, Color.GREEN, Color.GREEN, Color.WHITE, Color.WHITE});
-	private 
+	
 	public Queue<Solution> generateAndTest() {
 		LinkedQueue<Solution> sList = new QueueImplementation<Solution>();
 		while (c1.hasNext()) {
