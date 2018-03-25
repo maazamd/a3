@@ -1,9 +1,5 @@
 public class Cube {
-	
-	public enum Color {
-		BLUE, GREEN, RED, WHITE
-	}	
-	
+		
 	private Color[] faces;
 	private Color[] original = new Color[6];
 
@@ -101,10 +97,7 @@ public class Cube {
 	}
 
 	public void next() {
-		if (counter > 24) {
-			throw new IllegalStateException("Please reset!");
-		}
-		else if (counter == 1) {
+		if (counter == 1) {
 			identity();
 		}
 		else if (counter == 5 || counter == 9 || counter == 21) {
