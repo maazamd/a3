@@ -1,14 +1,18 @@
 public class Cube {
 	
-	private String[] faces;
-	private String[] original = new String[7];
+	public enum Color {
+		BLUE, GREEN, RED, WHITE
+	}	
+	
+	private Color[] faces;
+	private Color[] original = new Color[6];
 
 	private int counter = 1;
 	
-	public Cube (String[] faces) {
+	public Cube (Color[] faces) {
 
 		// Makes an array that stores the original state
-		for (int i = 1; i <= 6; i++) {
+		for (int i = 0; i <= 5; i++) {
 			original[i] = faces[i];
 		}
 
@@ -16,43 +20,43 @@ public class Cube {
 	}
 
 	public Cube(Cube other) {
-		faces = new String[7];
-		int j = 1;
-		String c;
+		faces = new Color[6];
+		int j = 0;
+		Color c;
 		switch (j) {
-			case 1:
+			case 0:
 				c = other.getUp();
 				faces[j] = c;
 				j++;
 			break;
-			case 2:
+			case 1:
 				c = other.getFront();
 				faces[j] = c;
 				j++;
 			break;
-			case 3:
+			case 2:
 				c = other.getRight();
 				faces[j] = c;
 				j++;
 			break;
-			case 4:
+			case 3:
 				c = other.getBack();
 				faces[j] = c;
 				j++;
 			break;
-			case 5:
+			case 4:
 				c = other.getLeft();
 				faces[j] = c;
 				j++;
 			break;
-			case 6:
+			case 5:
 				c = other.getDown();
 				faces[j] = c;
 			break;
 		}
 
 		// Makes an array that stores the original state
-		for (int i = 1; i <= 6; i++) {
+		for (int i = 0; i <= 5; i++) {
 			original[i] = faces[i];
 		}
 	}
@@ -61,28 +65,28 @@ public class Cube {
 		return new Cube(this);
 	}
 	
-	public String getUp() {
+	public Color getUp() {
+		return faces[0];
+	}
+	
+	public Color getFront() {
 		return faces[1];
 	}
 	
-	public String getFront() {
+	public Color getRight() {
 		return faces[2];
 	}
 	
-	public String getRight() {
+	public Color getBack() {
 		return faces[3];
 	}
 	
-	public String getBack() {
+	public Color getLeft() {
 		return faces[4];
 	}
 	
-	public String getLeft() {
+	public Color getDown() {
 		return faces[5];
-	}
-	
-	public String getDown() {
-		return faces[6];
 	}
 	
 	public String toString() {
@@ -114,24 +118,24 @@ public class Cube {
 	}
 
 	public void reset() {
-		for (int i = 1; i <= 6; i++) {
+		for (int i = 0; i <= 5; i++) {
 			faces[i] = original[i];
 		}
 		counter = 1;
 	}
 
 	private void rotate() {
-		int opr = 2;
+		int opr = 1;
 		int oprNext = opr + 1;
-		String temp0 = faces[opr], temp1;
+		Color temp0 = faces[opr], temp1;
 
-		for (int i = 2; i <= 5; i++) {
+		for (int i = 1; i <= 4; i++) {
 
-			if (opr > 5) {
-				opr = 2;
+			if (opr > 4) {
+				opr = 1;
 			}
-			else if (opr == 5) {
-				oprNext = 2;
+			else if (opr == 4) {
+				oprNext = 1;
 			}
 
 			temp1 = faces[oprNext];
@@ -144,23 +148,23 @@ public class Cube {
 	}
 
 	private void rightRoll() {
-		int opr = 1;
-		int oprNext = 3;
-		String temp0 = faces[opr], temp1;
+		int opr = 0;
+		int oprNext = 2;
+		Color temp0 = faces[opr], temp1;
 
-		for (int i = 1; i <= 4; i++) {
+		for (int i = 0; i <= 3; i++) {
 
-			if (i == 2) {
-				opr = 3;
-				oprNext = 6;
-			}
-			else if (i == 3) {
-				opr = 6;
+			if (i == 1) {
+				opr = 2;
 				oprNext = 5;
 			}
-			else if (i == 4) {
+			else if (i == 2) {
 				opr = 5;
-				oprNext = 1;
+				oprNext = 4;
+			}
+			else if (i == 3) {
+				opr = 4;
+				oprNext = 0;
 			}
 
 			temp1 = faces[oprNext];
@@ -170,23 +174,23 @@ public class Cube {
 	}
 
 	private void leftRoll() {
-		int opr = 1;
-		int oprNext = 5;
-		String temp0 = faces[opr], temp1;
+		int opr = 0;
+		int oprNext = 4;
+		Color temp0 = faces[opr], temp1;
 
-		for (int i = 1; i <= 4; i++) {
+		for (int i = 0; i <= 3; i++) {
 
-			if (i == 2) {
+			if (i == 1) {
+				opr = 4;
+				oprNext = 5;
+			}
+			else if (i == 2) {
 				opr = 5;
-				oprNext = 6;
+				oprNext = 2;
 			}
 			else if (i == 3) {
-				opr = 6;
-				oprNext = 3;
-			}
-			else if (i == 4) {
-				opr = 3;
-				oprNext = 1;
+				opr = 2;
+				oprNext = 0;
 			}
 
 			temp1 = faces[oprNext];
@@ -201,7 +205,7 @@ public class Cube {
 
 	// This is used to test the methods
 	public void display() {
-		for (int i = 1; i <= 6; i++) {
+		for (int i = 0; i <= 5; i++) {
 			System.out.println(this.faces[i]);
 		}
 		System.out.println("------------");
@@ -210,7 +214,7 @@ public class Cube {
 	// This is used to test the methods
 	public static void main(String[] args) {
 		Cube c;
-		c = new Cube(new String[]{"none","BLUE", "GREEN", "WHITE", "GREEN", "BLUE", "RED"});
+		c = new Cube(new Color[]{Color.BLUE, Color.GREEN, Color.WHITE, Color.GREEN, Color.BLUE, Color.RED});
 
 		while (c.hasNext() == true) {
 			c.next();
