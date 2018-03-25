@@ -13,24 +13,28 @@ public class Solve {
 			s = new Solution(new Cube[]{c1, c2, c3, c4});
 			if (s.isValid() == true) {
 				sList.enqueue(s);
+				//System.out.print(s)
 			}
 			while (c2.hasNext()) {
 				c2.next();
 				s = new Solution(new Cube[]{c1, c2, c3, c4});
 				if (s.isValid() == true) {
 					sList.enqueue(s);
+					//System.out.print(s)
 				}
 				while (c3.hasNext()) {
 					c3.next();
 					s = new Solution(new Cube[]{c1, c2, c3, c4});
 					if (s.isValid() == true) {
 						sList.enqueue(s);
+						//System.out.print(s)
 					}
 					while (c4.hasNext()) {
 						c4.next();
 						s = new Solution(new Cube[]{c1, c2, c3, c4});
 						if (s.isValid() == true) {
 							sList.enqueue(s);
+							//System.out.print(s)
 						}
 					}
 					c4.reset();
@@ -44,9 +48,14 @@ public class Solve {
 		return sList;
 	}
 	
-	//public Queue<Solution> breadthFirstSearch() {
-		
-	//}
+	public Queue<Solution> breadthFirstSearch() {
+		Queue<Solution> open = new LinkedQueue<Solution>();
+		Queue<Solution> solutions = new LinkedQueue<Solution>();
+		while (!open.isEmpty()) {
+			Solution current = open.dequeue();
+		}
+		return solutions;
+	}
 	
 	public static void main(String[] args) {
 		Solve s = new Solve();
