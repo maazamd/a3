@@ -14,6 +14,52 @@ public class Cube {
 
 		this.faces = faces;
 	}
+
+	public Cube(Cube other) {
+		faces = new String[7];
+		int j = 1;
+		String c;
+		switch (j) {
+			case 1:
+				c = other.getUp();
+				faces[j] = c;
+				j++;
+			break;
+			case 2:
+				c = other.getFront();
+				faces[j] = c;
+				j++;
+			break;
+			case 3:
+				c = other.getRight();
+				faces[j] = c;
+				j++;
+			break;
+			case 4:
+				c = other.getBack();
+				faces[j] = c;
+				j++;
+			break;
+			case 5:
+				c = other.getLeft();
+				faces[j] = c;
+				j++;
+			break;
+			case 6:
+				c = other.getDown();
+				faces[j] = c;
+			break;
+		}
+
+		// Makes an array that stores the original state
+		for (int i = 1; i <= 6; i++) {
+			original[i] = faces[i];
+		}
+	}
+
+	public Cube copy() {
+		return new Cube(this);
+	}
 	
 	public String getUp() {
 		return faces[1];
