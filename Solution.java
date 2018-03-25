@@ -29,6 +29,7 @@ public class Solution {
 				}
 			}
 		}
+		numCalls++;
 		return true;
 	}
 	
@@ -66,8 +67,8 @@ public class Solution {
 		numCalls = 0;
 	}
 	
-	public void resetNumberOfCalls() {
-		
+	public int getNumberOfCalls() {
+		return numCalls;
 	}
 	
 }
