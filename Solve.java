@@ -5,7 +5,22 @@ public class Solve {
 	private Cube c3 = new Cube(new Color[]{Color.BLUE, Color.RED, Color.GREEN, Color.GREEN, Color.WHITE, Color.WHITE});
 	
 	public Queue<Solution> generateAndTest() {
-		
+		while (c1.hasNext()) {
+			c1.next();
+			while (c2.hasNext()) {
+				c2.next();
+				while (c3.hasNext()) {
+					c3.next();
+					while (c4.hasNext()) {
+						c4.next();
+					}
+					c4.reset();
+				}
+				c3.reset();
+			}
+			c2.reset();
+		}
+		c1.rest();
 	}
 	
 	public Queue<Solution> breadthFirstSearch() {
