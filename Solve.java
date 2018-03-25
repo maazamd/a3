@@ -44,20 +44,21 @@ public class Solve {
 		return sList;
 	}
 	
-	public Queue<Solution> breadthFirstSearch() {
+	//public Queue<Solution> breadthFirstSearch() {
 		
-	}
+	//}
 	
 	public static void main(String[] args) {
+		Solve s = new Solve();
 		long start, stop;
 		System.out.println("generateAndTest: ");
 		start = System.currentTimeMillis();
-		generateAndTest();
-		stop = System.currentTimeMillis;
+		s.generateAndTest();
+		stop = System.currentTimeMillis();
 		System.out.println("Elapsed time: "+(stop-start)+" milliseconds");
 		System.out.println("breadthFirstSearch: ");
 		start = System.currentTimeMillis();
-		breadthFirstSearch();
+		//s.breadthFirstSearch();
 		stop = System.currentTimeMillis();
 		System.out.println("Elapsed time: "+(stop-start)+" milliseconds");
 	}

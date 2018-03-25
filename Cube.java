@@ -199,24 +199,5 @@ public class Cube {
 		reset();
 	}
 
-	// This is used to test the methods
-	public void display() {
-		for (int i = 0; i <= 5; i++) {
-			System.out.println(this.faces[i]);
-		}
-		System.out.println("------------");
-	}
-
-	// This is used to test the methods
-	public static void main(String[] args) {
-		Cube c;
-		c = new Cube(new Color[]{Color.BLUE, Color.GREEN, Color.WHITE, Color.GREEN, Color.BLUE, Color.RED});
-
-		while (c.hasNext() == true) {
-			c.next();
-			c.display();
-		}
-		c.reset();
-		c.display();
-	}
+	
 }
