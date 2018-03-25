@@ -6,28 +6,29 @@ public class Solve {
 	private Cube c4 = new Cube(new Color[]{Color.BLUE, Color.RED, Color.GREEN, Color.GREEN, Color.WHITE, Color.WHITE});
 	
 	public Queue<Solution> generateAndTest() {
-		LinkedQueue<Solution> sList = new QueueImplementation<Solution>();
+		Queue<Solution> sList = new LinkedQueue<Solution>();
+		Solution s = new Solution(new Cube[]{c1, c2, c3, c4});
 		while (c1.hasNext()) {
 			c1.next();
-			Solution s = new Solution(new Cube[]{c1, c2, c3, c4});
+			s = new Solution(new Cube[]{c1, c2, c3, c4});
 			if (s.isValid() == true) {
 				sList.enqueue(s);
 			}
 			while (c2.hasNext()) {
 				c2.next();
-				Solution s = new Solution(new Cube[]{c1, c2, c3, c4});
+				s = new Solution(new Cube[]{c1, c2, c3, c4});
 				if (s.isValid() == true) {
 					sList.enqueue(s);
 				}
 				while (c3.hasNext()) {
 					c3.next();
-					Solution s = new Solution(new Cube[]{c1, c2, c3, c4});
+					s = new Solution(new Cube[]{c1, c2, c3, c4});
 					if (s.isValid() == true) {
 						sList.enqueue(s);
 					}
 					while (c4.hasNext()) {
 						c4.next();
-						Solution s = new Solution(new Cube[]{c1, c2, c3, c4});
+						s = new Solution(new Cube[]{c1, c2, c3, c4});
 						if (s.isValid() == true) {
 							sList.enqueue(s);
 						}
@@ -39,7 +40,7 @@ public class Solve {
 			c2.reset();
 		}
 		c1.reset();
-		System.out.println(getNumberOfCalls());
+		System.out.println(s.getNumberOfCalls());
 		return sList;
 	}
 	
