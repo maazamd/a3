@@ -1,10 +1,36 @@
+/**
+ * The class <b>Solve</b> contains three methods: <b>generateAndTest</b>, <b>breadthFirstSearch</b>,
+ * And <b>main</b>. Which solves the instant insanity problem.
+ *
+ * @author Maaz Ahmad, Richard Guan
+ */
 public class Solve {
 	
+	/**
+	 * Creates a new cube with a specified color for each side.
+	 */
 	private Cube c1 = new Cube(new Color[]{Color.BLUE, Color.GREEN, Color.WHITE, Color.GREEN, Color.BLUE, Color.RED});
+
+	/**
+	 * Creates a new cube with a specified color for each side.
+	 */
 	private Cube c2 = new Cube(new Color[]{Color.WHITE, Color.GREEN, Color.BLUE, Color.WHITE, Color.RED, Color.RED});
+
+	/**
+	 * Creates a new cube with a specified color for each side.
+	 */
 	private Cube c3 = new Cube(new Color[]{Color.GREEN, Color.WHITE, Color.RED, Color.BLUE, Color.RED, Color.RED});
+
+	/**
+	 * Creates a new cube with a specified color for each side.
+	 */
 	private Cube c4 = new Cube(new Color[]{Color.BLUE, Color.RED, Color.GREEN, Color.GREEN, Color.WHITE, Color.WHITE});
 	
+	/**
+     * Finds all the solutions to the problem by generating all possible solutions.
+	 *
+     * @return a queue that contains all the valid solutions to the problem
+     */
 	public Queue<Solution> generateAndTest() {
 		Queue<Solution> sList = new LinkedQueue<Solution>();
 		Solution s = new Solution(new Cube[]{c1, c2, c3, c4});
@@ -33,6 +59,11 @@ public class Solve {
 		return sList;
 	}
 	
+	/**
+     * Finds all the solutions to the problem using the "breadth-first-search" algorithm.
+     * 
+     * @return a queue that contains all the valid solutions to the problem
+     */
 	public Queue<Solution> breadthFirstSearch() {
 		Queue<Solution> open = new LinkedQueue<Solution>();
 		Queue<Solution> solutions = new LinkedQueue<Solution>();
@@ -55,6 +86,12 @@ public class Solve {
 		return solutions;
 	}
 	
+	/**
+     * The main method of the class.
+	 *
+	 * @param args
+	 *			the coomand line arguments
+     */
 	public static void main(String[] args) {
 		Solve s = new Solve();
 		long start, stop;
@@ -65,7 +102,7 @@ public class Solve {
 		System.out.println("Elapsed time: "+(stop-start)+" milliseconds");
 		System.out.println("breadthFirstSearch: ");
 		start = System.currentTimeMillis();
-		//s.breadthFirstSearch();
+		s.breadthFirstSearch();
 		stop = System.currentTimeMillis();
 		System.out.println("Elapsed time: "+(stop-start)+" milliseconds");
 	}

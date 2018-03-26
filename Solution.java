@@ -7,19 +7,18 @@
 public class Solution {
 	
 	/**
-	* A counter for the total number of checks towards the validity of a solution.
-	*/
-	
+	 * A counter for the total number of checks towards the validity of a solution.
+	 */
 	private static int numCalls;
+
 	/**
-	* A list of cubes representing the stack of cubes used for the puzzle.
-	*/
-	
+	 * A list of cubes representing the stack of cubes used for the puzzle.
+	 */
 	private Cube[] cubes;
+
 	/**
-	* A counter for the number of solutions that are actually valid.
-	*/
-	
+	 * A counter for the number of solutions that are actually valid.
+	 */
 	private static int totalValidSolutions;
 	
 	/**
@@ -50,14 +49,33 @@ public class Solution {
 		cubes[other.size()] = c;
 	}
 	
+	/**
+     * The logical sizeo f the data structure.
+     * 
+     * @return the number of cubes that are stored in this solution
+     */
 	public int size() {
 		return cubes.length;
 	}
 	
+	/**
+     * Returns the reference of the Cube at the specified position.
+	 *
+	 * @param pos
+	 *			the specified position.
+     * 
+     * @return the reference of the Cube at the specified position
+     */
 	public Cube getCube(int pos) {
 		return cubes[pos];
 	}
 	
+	/**
+     * Returns true if each side of the pile of cubes has no duplicated color,
+     * False otherwise.
+     * 
+     * @return if each side of the pile of cubes has no duplicated color
+     */
 	public boolean isValid() {
 		numCalls++;
 		for (int i = 0; i < cubes.length; i++) {
@@ -73,6 +91,15 @@ public class Solution {
 		return true;
 	}
 	
+	/**
+     * Returns true the solution would remain valid when adding the cube
+     * Designated by next to the solution, and false otherwise.
+     *
+     * @param next
+     *			the next cube.
+     * 
+     * @return the color of back side
+     */
 	public boolean isValid(Cube next) {
 		if (isValid() == true) {
 			for (int i = 0; i < cubes.length; i++) {
@@ -87,6 +114,11 @@ public class Solution {
 		return true;
 	}
 	
+	/**
+     * A String representation of the solution.
+     * 
+     * @return a string representation of the solution
+     */
 	public String toString() {
 		if (cubes.length == 4) {
 			return "[ "+cubes[0].toString()+", "+cubes[1].toString()+", "+cubes[2].toString()+", "+cubes[3].toString()+" ]";
@@ -103,16 +135,28 @@ public class Solution {
 		return "There are no cubes given";
 	}
 	
+	/**
+     * A method that resets the number of calls.
+     */
 	public void resetNumberOfCalls() {
 		numCalls = 0;
 	}
 	
+	/**
+     * Getter method for the number of calls.
+     * 
+     * @return the number of calls
+     */
 	public int getNumberOfCalls() {
 		return numCalls;
 	}
 	
+	/**
+     * Getter method for the total number of valid solutions
+     * 
+     * @return the number of valid solutions
+     */
 	public int getTotalValidSolutions() {
 		return totalValidSolutions;
 	}
-	
 }
