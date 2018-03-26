@@ -1,13 +1,47 @@
+/**
+ * The class <b>Solution</b> represents a stack of cubes with various
+ * orientations of their own (which, if all are unique, can be classified as a valid solution).
+ *
+ * @author Maaz Ahmad, Richard Guan
+ */
 public class Solution {
 	
+	/**
+	* A counter for the total number of checks towards the validity of a solution.
+	*/
+	
 	private static int numCalls;
+	/**
+	* A list of cubes representing the stack of cubes used for the puzzle.
+	*/
+	
 	private Cube[] cubes;
+	/**
+	* A counter for the number of solutions that are actually valid.
+	*/
+	
 	private static int totalValidSolutions;
 	
+	/**
+     * Constructor used to initialize a solution (a state orientations
+	 * of given cubes).
+     * 
+     * @param cubes
+     *            the cubes that the solution is to consist of.
+     */
 	Solution(Cube[] cubes) {
 		this.cubes = cubes;
 	}
 	
+	/**
+     * Constructor used for merging one stack of cubes with another
+	 * cube.
+     * 
+     * @param other
+     *            the other solution (stack of cubes).
+     * @param c
+     *            the additional cube to be added to the solution.
+     */
 	Solution(Solution other, Cube c) {
 		cubes = new Cube[other.size()+1];
 		for (int i = 0; i < other.size(); i++) {
