@@ -2,7 +2,7 @@
  * The class <b>Cube</b> represents a cube (with 6 sides). It has a color
  * on each side, and can be rotated around by calling its methods.
  *
- * @author Maaz Amad, Richard Guan
+ * @author Maaz Ahmad, Richard Guan
  */
 public class Cube {
 	
