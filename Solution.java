@@ -2,6 +2,7 @@ public class Solution {
 	
 	private static int numCalls;
 	private Cube[] cubes;
+	private static int totalValidSolutions;
 	
 	Solution(Cube[] cubes) {
 		this.cubes = cubes;
@@ -20,6 +21,7 @@ public class Solution {
 	}
 	
 	public boolean isValid() {
+		numCalls++;
 		for (int i = 0; i < cubes.length; i++) {
 			for (int j = 0; j < cubes.length; j++) {
 				if (cubes[i].getFront() == cubes[j].getFront() || cubes[i].getBack() == cubes[j].getBack() || cubes[i].getRight() == cubes[j].getRight() || cubes[i].getLeft() == cubes[j].getLeft()) {
@@ -29,7 +31,7 @@ public class Solution {
 				}
 			}
 		}
-		numCalls++;
+		totalValidSolutions++;
 		return true;
 	}
 	
@@ -69,6 +71,10 @@ public class Solution {
 	
 	public int getNumberOfCalls() {
 		return numCalls;
+	}
+	
+	public int getTotalValidSolutions() {
+		return totalValidSolutions;
 	}
 	
 }

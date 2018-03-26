@@ -10,31 +10,15 @@ public class Solve {
 		Solution s = new Solution(new Cube[]{c1, c2, c3, c4});
 		while (c1.hasNext()) {
 			c1.next();
-			s = new Solution(new Cube[]{c1, c2, c3, c4});
-			if (s.isValid() == true) {
-				sList.enqueue(s);
-				//System.out.print(s)
-			}
 			while (c2.hasNext()) {
 				c2.next();
-				s = new Solution(new Cube[]{c1, c2, c3, c4});
-				if (s.isValid() == true) {
-					sList.enqueue(s);
-					//System.out.print(s)
-				}
 				while (c3.hasNext()) {
 					c3.next();
-					s = new Solution(new Cube[]{c1, c2, c3, c4});
-					if (s.isValid() == true) {
-						sList.enqueue(s);
-						//System.out.print(s)
-					}
 					while (c4.hasNext()) {
 						c4.next();
 						s = new Solution(new Cube[]{c1, c2, c3, c4});
 						if (s.isValid() == true) {
 							sList.enqueue(s);
-							//System.out.print(s)
 						}
 					}
 					c4.reset();
@@ -45,6 +29,7 @@ public class Solve {
 		}
 		c1.reset();
 		System.out.println(s.getNumberOfCalls());
+		System.out.println(s.getTotalValidSolutions());
 		return sList;
 	}
 	
