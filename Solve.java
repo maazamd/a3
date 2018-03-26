@@ -36,8 +36,21 @@ public class Solve {
 	public Queue<Solution> breadthFirstSearch() {
 		Queue<Solution> open = new LinkedQueue<Solution>();
 		Queue<Solution> solutions = new LinkedQueue<Solution>();
+		while (c1.hasNext()) {
+			open.enqueue(new Solution(new Cube[]{c1}));
+			c1.next();
+		}
 		while (!open.isEmpty()) {
 			Solution current = open.dequeue();
+			if (current.isValid(c2)) {
+				Solution s = new Solution(current, c2);
+				if (s.size() == 4) {
+					solutions.enqueue(s);
+				}
+				else {
+					open.enqueue(s);
+				}
+			}
 		}
 		return solutions;
 	}
