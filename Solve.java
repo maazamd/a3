@@ -67,22 +67,36 @@ public class Solve {
 	public Queue<Solution> breadthFirstSearch() {
 		Queue<Solution> open = new LinkedQueue<Solution>();
 		Queue<Solution> solutions = new LinkedQueue<Solution>();
+		Solution s = new Solution(new Cube[]{c1});
+		Cube cGeneral = c2;
 		while (c1.hasNext()) {
 			open.enqueue(new Solution(new Cube[]{c1}));
 			c1.next();
 		}
 		while (!open.isEmpty()) {
+			cGeneral.reset();
 			Solution current = open.dequeue();
-			if (current.isValid(c2)) {
-				Solution s = new Solution(current, c2);
-				if (s.size() == 4) {
-					solutions.enqueue(s);
+			if (current.size() == 2) {
+				cGeneral = c3;
+			}
+			else if (current.size() == 3 || current.size() == 4) {
+				cGeneral = c4;
+			}
+			while (cGeneral.hasNext()) {
+				if (current.isValid(cGeneral)) {
+					s = new Solution(current, cGeneral);
+					if (s.size() == 4) {
+						solutions.enqueue(s);
+					}
+					else {
+						open.enqueue(s);
+					}
 				}
-				else {
-					open.enqueue(s);
-				}
+				cGeneral.next();
 			}
 		}
+		System.out.println(s.getNumberOfCalls());
+		System.out.println(s.getTotalValidSolutions());
 		return solutions;
 	}
 	
