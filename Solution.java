@@ -9,7 +9,10 @@ public class Solution {
 	}
 	
 	Solution(Solution other, Cube c) {
-		
+		cubes = new Cube[other.size()];
+		for (int i = 0; i < other.size(); i++) {
+			cubes[i] = other.getCube(i);
+		}
 	}
 	
 	public int size() {
